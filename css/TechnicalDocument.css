@@ -1,0 +1,76 @@
+html{
+  padding: 0;
+  margin: 0;
+}
+#sidebar-button{
+  display: inline;
+  position: fixed;
+}
+#page-body{
+  margin: 0;
+  display: grid;
+  grid-template-columns: [begin] 20vw [between] 80vw;
+  background-color: red;
+
+}
+a{
+  text-decoration: none;
+  color: #555555;
+
+}
+#navbar{
+  display: flex;
+  flex-direction: column;
+  border-right: solid #868686;
+  border-width: .2vw ;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+#main-doc{
+  padding-left: 5vw;
+
+
+}
+#title{
+  padding: 0;
+  margin: 20px 10px 10px 10px;
+}
+.nav-link{
+  font-size: 30px;
+  vertical-align: middle;
+
+  padding: 10px;
+  border-top: solid .1vh #000000;
+}
+input[type=checkbox] {
+  display: none;
+}
+#slide-sidebar:checked ~#main-doc{
+  background-color: skyblue;
+}
+
+
+
+input:checked ~ label {
+  left: 0;
+}
+
+label {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 20vw;
+  background-color: skyblue;
+
+  -moz-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+}
+@media (max-width: 800px) {
+  #navbar{
+    left: -20vw;
+  }
+
+}
