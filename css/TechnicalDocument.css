@@ -2,6 +2,10 @@ html{
   padding: 0;
   margin: 0;
 }
+body{
+  padding: 0;
+  margin: 0;
+}
 #sidebar-button{
   display: inline;
   position: fixed;
@@ -9,8 +13,8 @@ html{
 #page-body{
   margin: 0;
   display: grid;
-  grid-template-columns: [begin] 20vw [between] 80vw;
-  background-color: red;
+  grid-template-columns: 20vw  80vw;
+  background-color: #b2f0ff;
 
 }
 a{
@@ -48,9 +52,12 @@ a{
 input[type=checkbox] {
   display: none;
 }
-#slide-sidebar:checked ~#main-doc{
-  background-color: skyblue;
+
+#slide-sidebar:checked ~#page-body{
+  grid-template-columns: 0vw  80vw;
+  transition: 0.25s;
 }
+
 
 
 
@@ -60,17 +67,40 @@ input:checked ~ label {
 
 label {
   z-index: 3;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 20vw;
   background-color: skyblue;
 
-  -moz-transition: left 0.5s ease;
-  transition: left 0.5s ease;
+  -moz-transition: left 0.25s ease;
+  transition: left 0.25s ease;
 }
 @media (max-width: 800px) {
+  #page-body{
+    grid-template-columns: 10vw  80vw;
+  }
   #navbar{
-    left: -20vw;
+    font-size: 70%;
+  }
+  .nav-link{
+    font-size: 80%;
+  }
+  #main-doc{
+    padding-left: 8vw;
+  }
+  label{
+    left: 0vw;
+  }
+  input:checked ~ label {
+    left: 10vw;
   }
 
+  #slide-sidebar:not(:checked) ~#page-body{
+    grid-template-columns: 0vw  80vw;
+    transition: 0.25s;
+  }
+  #slide-sidebar:checked ~#page-body{
+    grid-template-columns: 10vw  80vw;
+    transition: 0.25s;
+  }
 }
