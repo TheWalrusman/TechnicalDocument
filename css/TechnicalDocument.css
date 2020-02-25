@@ -66,6 +66,8 @@ input:checked ~ label {
 }
 
 label {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
   z-index: 3;
   position: fixed;
   top: 0;
